@@ -4,9 +4,9 @@
 ![Language](https://img.shields.io/badge/language-R-blue)
 ![Framework](https://img.shields.io/badge/framework-Shiny-orange)
 
-**Tech stack:** R • Shiny • Time Series • ARIMA • ETS • Plotly
+Tech stack: R • Shiny • Plotly • Time Series • ARIMA • ETS
 
-Interactive time series analysis and forecasting of electricity demand using classical statistical models and an interactive Shiny dashboard.
+An interactive Shiny dashboard for analyzing electricity demand, exploring time series structure, comparing classical forecasting models, and visualizing 30-day demand projections.
 
 [![Open Dashboard](https://img.shields.io/badge/Open-Dashboard-blue?style=for-the-badge)](https://giodannolimin-electricity-demand-forecast.share.connect.posit.cloud/)
 
@@ -15,223 +15,220 @@ Interactive time series analysis and forecasting of electricity demand using cla
 ![Dashboard Preview](dashboard_preview.png)
 
 ---
-# Overview
 
-This project analyzes electricity demand data and builds forecasting models using classical time series techniques.
+## Overview
 
-The dataset contains hourly electricity demand for the PJM East region (PJME). The workflow includes:
+This project analyzes electricity demand data from the PJM East region (PJME) and builds forecasting models using classical time series methods.
 
-* Data cleaning and preprocessing
-* Time series decomposition
-* Stationarity testing
-* Forecasting using ARIMA and ETS models
-* Interactive visualization using a Shiny dashboard
+The workflow includes:
 
-The goal of this project is to explore electricity demand patterns and evaluate forecasting models.
+- data cleaning and preprocessing
+- daily aggregation of hourly demand
+- STL decomposition
+- stationarity analysis
+- forecasting with ARIMA and ETS
+- interactive visualization through a Shiny dashboard
+
+The goal is to understand demand patterns, compare forecasting performance, and present the results in a clean interactive interface.
 
 ---
 
-# Dataset
+## Why This Project
 
-**Source:** PJM Interconnection electricity demand dataset.
+Electricity demand is a time-dependent process with trend, seasonality, and short-term fluctuations. This project demonstrates how classical statistical forecasting methods can be combined with interactive visualization to make time series analysis more interpretable and accessible.
+
+---
+
+## Dataset
+
+Source: PJM Interconnection electricity demand dataset
 
 Original frequency:
+- Hourly electricity demand
 
-* Hourly electricity demand
+Used in this project:
+- Aggregated to daily electricity demand
+- Most recent 365 days used for focused modeling and forecasting
 
-For modeling in this project:
+Variables:
 
-* Data is aggregated to **daily electricity demand**
-* The most recent **365 days** are used for forecasting
-
-### Variables
-
-| Variable | Description                     |
-| -------- | ------------------------------- |
-| Datetime | Timestamp of electricity demand |
-| PJME_MW  | Electricity demand in megawatts |
+Variable | Description
+Datetime | Timestamp of electricity demand
+PJME_MW | Electricity demand in megawatts
 
 ---
 
-# Project Structure
+## Project Structure
 
-```
 electricity-demand-forecast
-│
-├── data/
-│   └── PJME_hourly.csv
-│
-├── scripts/
-│   ├── load_data.R
-│   ├── preprocess.R
-│   ├── time_series_analysis.R
-│   └── forecasting_models.R
-│
-├── dashboard/
-│   ├── app.R
-│   └── manifest.json
-│
-├── results/
-│
-├── dashboard_preview.png
-├── README.md
-└── .gitignore
-```
+
+data/
+PJME_hourly.csv
+
+scripts/
+load_data.R  
+preprocess.R  
+time_series_analysis.R  
+forecasting_models.R  
+
+dashboard/
+app.R  
+manifest.json  
+
+results/
+
+dashboard_preview.png  
+README.md  
+.gitignore
 
 ---
 
-# Methods
+## Methods
 
-## Data Processing
+### Data Processing
 
-The raw hourly dataset is processed using the following steps:
+The raw hourly dataset is processed by:
 
-* Remove missing values
-* Remove duplicate timestamps
-* Convert hourly electricity demand into **daily averages**
+- removing missing values
+- removing duplicate timestamps
+- creating calendar-based features
+- aggregating hourly demand into daily averages
 
-## Time Series Analysis
+### Time Series Analysis
 
-Exploratory time series analysis includes:
+The exploratory analysis includes:
 
-* STL decomposition
-* ACF and PACF analysis
-* Augmented Dickey–Fuller stationarity test
+- STL decomposition
+- ACF and PACF analysis
+- Augmented Dickey–Fuller stationarity testing
 
-These steps help identify trend, seasonality, and stationarity properties of the data.
+These steps help identify trend, seasonality, and time series behavior before forecasting.
 
 ---
 
-# Forecasting Models
+## Forecasting Models
 
-Two forecasting models are implemented and compared.
+Two classical forecasting models are implemented and compared.
 
-## ARIMA
+### ARIMA
 
-* Automatically selected using `auto.arima()`
-* Captures autocorrelation and seasonal patterns
+- Automatically selected using auto.arima()
+- Captures autocorrelation and seasonal structure in the series
 
-## ETS (Exponential Smoothing)
+### ETS
 
-* Models level and seasonal components
-* Suitable for capturing smooth demand patterns
+- Exponential smoothing model for level, trend, and seasonality
+- Useful for smoother time series patterns
 
 ### Model Evaluation
 
 Models are evaluated using:
 
-* RMSE (Root Mean Squared Error)
-* MAE (Mean Absolute Error)
-* MAPE (Mean Absolute Percentage Error)
+- RMSE (Root Mean Squared Error)
+- MAE (Mean Absolute Error)
+- MAPE (Mean Absolute Percentage Error)
 
-The best model is selected based on **RMSE**.
-
----
-
-# Dashboard Features
-
-The Shiny dashboard provides interactive exploration of electricity demand.
-
-## Demand Overview
-
-* Full electricity demand time series
-* Recent demand visualization with adjustable time window
-
-## Time Series Decomposition
-
-Displays the components of the time series:
-
-* Trend
-* Seasonal component
-* Remainder (noise)
-
-## Model Comparison
-
-* Actual demand vs ARIMA forecast
-* Actual demand vs ETS forecast
-* Model accuracy comparison table
-
-## Future Forecast
-
-* 30-day electricity demand forecast using the best model
-
-## Model Summary
-
-Displays the model selected as best based on RMSE.
+The best model is selected based on RMSE.
 
 ---
 
-# Running the Project
+## Dashboard Features
 
-Clone the repository and install the required R packages.
+The dashboard provides an interactive interface for exploring the full forecasting workflow.
 
-Install dependencies:
+### Overview
 
-```r
+- Full daily electricity demand history
+- Recent demand visualization with adjustable time window
+- Highlighted recent analysis window within the long-run series
+
+### Decomposition
+
+- STL trend component
+- Seasonal component
+- Remainder component
+
+### Model Comparison
+
+- Actual demand vs ARIMA forecast
+- Actual demand vs ETS forecast
+- Accuracy comparison table
+
+### Forecast
+
+- 30-day forecast using the best-performing model
+- 80% and 95% prediction intervals
+- Forecast table for projected demand values
+
+### Learn
+
+- Beginner-friendly explanations of time series concepts
+- Explanations of STL, RMSE, ARIMA, ETS, and forecast interpretation
+
+---
+
+## Running the Project
+
+Install the required R packages:
+
 install.packages(c(
-  "shiny",
-  "plotly",
-  "tidyverse",
-  "forecast",
-  "tseries",
-  "lubridate",
-  "bslib"
+"shiny",
+"plotly",
+"tidyverse",
+"forecast",
+"tseries",
+"lubridate",
+"bslib"
 ))
-```
 
 Run the dashboard locally:
 
-```r
 setwd("electricity-demand-forecast")
 shiny::runApp("dashboard")
-```
 
 ---
 
-# Outputs
+## Outputs
 
-The project generates several outputs including:
+The project generates outputs such as:
 
-* STL decomposition plots
-* ARIMA forecast plots
-* ETS forecast plots
-* Forecast comparison tables
-* Future demand forecasts
+- decomposition plots
+- ARIMA and ETS forecast plots
+- model comparison tables
+- fitted values
+- final 30-day forecast outputs
 
-These outputs are saved in the `results/` directory.
-
----
-
-# Technologies Used
-
-* R
-* Shiny
-* Plotly
-* Tidyverse
-* forecast
-* tseries
-* lubridate
-* bslib
+These files are saved in the results/ directory.
 
 ---
 
-# Future Improvements
+## Technologies Used
 
-Possible extensions for this project include:
-
-* Adding Prophet or machine learning forecasting models
-* Including hourly forecasting
-* Incorporating weather variables as predictors
-* Adding more advanced model diagnostics
-* Improving dashboard interactivity
+- R
+- Shiny
+- Plotly
+- Tidyverse
+- forecast
+- tseries
+- lubridate
+- bslib
 
 ---
 
-# Author
+## Future Improvements
 
-# Author
+Potential extensions include:
 
-**Giodanno Limin**
+- adding additional forecasting models
+- incorporating exogenous predictors such as weather
+- extending the dashboard to hourly forecasting
+- adding residual diagnostics and model validation views
+- improving interactive table functionality
 
-- Applied Statistics Specialist  
-- University of Toronto
+---
+
+## Author
+
+Giodanno Limin  
+Applied Statistics Specialist  
+University of Toronto
