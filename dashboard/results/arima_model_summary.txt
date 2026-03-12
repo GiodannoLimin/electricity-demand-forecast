@@ -1,0 +1,16 @@
+Series: ts_train 
+ARIMA(5,0,0)(2,0,0)[7] with non-zero mean 
+
+Coefficients:
+         ar1      ar2     ar3      ar4     ar5    sar1    sar2      mean
+      1.1076  -0.5025  0.3338  -0.1823  0.0620  0.2168  0.2336  31205.56
+s.e.  0.0553   0.0829  0.0852   0.0822  0.0578  0.0586  0.0559   1057.15
+
+sigma^2 = 4067169:  log likelihood = -3021.86
+AIC=6061.73   AICc=6062.28   BIC=6096.06
+
+Training set error measures:
+                    ME     RMSE      MAE        MPE     MAPE      MASE
+Training set -26.75927 1992.497 1519.219 -0.4808901 4.888006 0.4771157
+                    ACF1
+Training set -0.01183309

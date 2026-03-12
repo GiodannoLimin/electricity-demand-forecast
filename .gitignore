@@ -1,0 +1,17 @@
+# R session files
+.Rhistory
+.RData
+.Ruserdata
+
+# RStudio
+.Rproj.user
+
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
+
+# temporary files
+*.log
+*.tmp
