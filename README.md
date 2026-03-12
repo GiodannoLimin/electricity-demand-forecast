@@ -6,9 +6,9 @@ Interactive time series analysis and forecasting of electricity demand using cla
 
 ## Live Demo
 
-Try the interactive dashboard:
+## Live Demo
 
-https://giodannolimin-electricity-demand-forecast.share.connect.posit.cloud/
+[![Open Dashboard](https://img.shields.io/badge/Open-Dashboard-blue?style=for-the-badge)](YOUR_LINK)
 ---
 
 ![Dashboard Preview](dashboard_preview.png)
@@ -229,6 +229,9 @@ Possible extensions for this project include:
 
 # Author
 
+# Author
+
 **Giodanno Limin**
-Applied Statistics Specialist
-University of Toronto
+
+- Applied Statistics Specialist  
+- University of Toronto
