@@ -63,7 +63,7 @@ plot_layout_base <- list(
   plot_bgcolor = plot_bg,
   paper_bgcolor = plot_bg,
   font = list(color = font_col),
-  margin = list(l = 60, r = 30, t = 55, b = 55),
+  margin = list(l = 60, r = 30, t = 90, b = 55),
   xaxis = list(
     title = "",
     showgrid = TRUE,
@@ -75,7 +75,11 @@ plot_layout_base <- list(
     gridcolor = grid_col,
     zeroline = FALSE
   ),
-  legend = list(orientation = "h", x = 0, y = 1.12)
+  legend = list(
+    orientation = "h",
+    x = 0,
+    y = 1.03
+  )
 )
 
 # ---------------------------------------------------------
