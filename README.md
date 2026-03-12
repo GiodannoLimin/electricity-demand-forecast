@@ -6,8 +6,6 @@ Interactive time series analysis and forecasting of electricity demand using cla
 
 ## Live Demo
 
-## Live Demo
-
 [![Open Dashboard](https://img.shields.io/badge/Open-Dashboard-blue?style=for-the-badge)](https://giodannolimin-electricity-demand-forecast.share.connect.posit.cloud/)
 ---
 
