@@ -5,14 +5,13 @@
 # ---------------------------------------------------------
 # 0. Install/load required packages
 # ---------------------------------------------------------
-required_packages <- c("shiny", "plotly", "tidyverse", "forecast", "bslib")
-
-for (pkg in required_packages) {
-  if (!require(pkg, character.only = TRUE)) {
-    install.packages(pkg)
-    library(pkg, character.only = TRUE)
-  }
-}
+library(shiny)
+library(plotly)
+library(tidyverse)
+library(forecast)
+library(bslib)
+library(lubridate)
+library(tseries)
 
 # ---------------------------------------------------------
 # 1. Load data from scripts

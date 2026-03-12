@@ -2,14 +2,8 @@
 # Forecasting Models
 # =========================================================
 
-required_packages <- c("tidyverse", "forecast")
-
-for (pkg in required_packages) {
-  if (!require(pkg, character.only = TRUE)) {
-    install.packages(pkg)
-    library(pkg, character.only = TRUE)
-  }
-}
+library(tidyverse)
+library(forecast)
 
 preprocess_path <- if (file.exists("scripts/preprocess.R")) {
   "scripts/preprocess.R"
