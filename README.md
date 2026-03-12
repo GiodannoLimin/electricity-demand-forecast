@@ -1,18 +1,20 @@
 # Electricity Demand Forecasting Dashboard
 
+![License](https://img.shields.io/badge/license-MIT-blue)
+![Language](https://img.shields.io/badge/language-R-blue)
+![Framework](https://img.shields.io/badge/framework-Shiny-orange)
+
 **Tech stack:** R • Shiny • Time Series • ARIMA • ETS • Plotly
 
 Interactive time series analysis and forecasting of electricity demand using classical statistical models and an interactive Shiny dashboard.
 
-## Live Demo
-
 [![Open Dashboard](https://img.shields.io/badge/Open-Dashboard-blue?style=for-the-badge)](https://giodannolimin-electricity-demand-forecast.share.connect.posit.cloud/)
+
 ---
 
 ![Dashboard Preview](dashboard_preview.png)
 
 ---
-
 # Overview
 
 This project analyzes electricity demand data and builds forecasting models using classical time series techniques.
